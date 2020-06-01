@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="#home" class="w3-bar-item w3-button"><b>PEC</b> Princeton Election Consortium</a>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#data" class="w3-bar-item w3-button">Data</a>
+      <a href="#about" class="w3-bar-item w3-button">About</a>
+      <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Woodrow_Wilson_School_of_Public_and_International_Affairs.jpg" alt="Architecture" width="1500" height="800">
+  <div class="w3-display-middle w3-margin-top w3-center">
+    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>PEC</b></span> <span class="w3-hide-small w3-text-light-grey">Princeton Election Consortium</span></h1>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px">
+
+  <!-- Project Section -->
+  <div class="w3-container w3-padding-32" id="data">
+    <h3 class="w3-center w3-border-bottom w3-border-light-grey w3-padding-16">Data</h3>
+  </div>
+
+  
+
+  <!-- About Section -->
+  <div class="w3-container w3-center" id="about">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
+    <p>This lightweight website serves as a demonstration for some of my skills with data scraping, processing, and visualization as well as web development. The site is built primarily using Python (Flask Framework) for bulk of the data work, and Javascript (D3.js) for the visualization library. Finally, the site is hosted using Heroku. 
+    </p>
+  </div>
+  <div class="w3-container w3-center w3-border-bottom w3-border-light-grey w3-padding-16">
+  	<div class="w3-container w3-quarter w3-hide-small">
+    	<img src="https://pbs.twimg.com/profile_images/1225536948745490432/31kBRQwz_400x400.jpg" alt="John" style="width:100%">
+    
+    </div>
+  	<div class="w3-container  w3-grayscale w3-half w3-center">
+    	<div class="w3-margin-bottom">
+     		 <img src="/w3images/team2.jpg" alt="John" style="width:100%">
+      		<h3>Michael Hallee</h3>
+      		<p class="w3-opacity">Data Analyst & Web Developer</p>
+      		<p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+     		 <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+    	</div>
+  	</div>
+    <div class="w3-container w3-quarter w3-hide-small">
+    	<img src="data:image/png;base64,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" alt="John" style="width:100%">
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <div class="w3-container w3-padding-32" id="contact">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h3>
+    <p>Lets get in touch and talk about your next project.</p>
+    <form action="" target="_blank">
+      <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+      <input class="w3-input w3-section w3-border" type="text" placeholder="Email" required name="Email">
+      <input class="w3-input w3-section w3-border" type="text" placeholder="Subject" required name="Subject">
+      <input class="w3-input w3-section w3-border" type="text" placeholder="Comment" required name="Comment">
+      <button class="w3-button w3-black w3-section" type="submit">
+        <i class="fa fa-paper-plane"></i> SEND MESSAGE
+      </button>
+    </form>
+  </div>
+  
+<!-- Image of location/map -->
+<div class="w3-container">
+  <img src="https://www.eypae.com/sites/default/files/styles/july_2019_marquee/public/projects/direct-uploads/2019/PRIN_MADI_N3_bdc1_HERO.jpg?itok=HXOA3jzE" class="w3-image" style="width:100%">
+</div>
+
+<!-- End page content -->
+</div>
+
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-16">
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+</footer>
+
+</body>
+</html>
+
