@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polls</title>
+</head>
+
+<body>
+
+    <header>
+head
+    </header>
+
+    <section>
+sect
+    </section>
+
+  <script>
+  const header = document.querySelector('header');
+  const section = document.querySelector('section');
+
+  let requestURL = './testdata';
+  let request = new XMLHttpRequest();
+  request.open('GET', requestURL);
+  request.responseType = 'json';
+  request.send();
+
+  request.onload = function() {
+    const polls = request.response;
+    listAllPolls(polls);
+  }
+
+
+  function listAllPolls(polls) {
+    console.log('called')
+    console.log(polls.test)
+    console.log(polls.test.x)
+    console.log(polls.test.x.length)
+    console.log(polls.test.x[1])
+    console.log(polls.test.y[1])
+    for(let i = 0; i < polls.length; i++) {
+        console.log('executing')
+      const myArticle = document.createElement('article');
+      const myH2 = document.createElement('h2');
+      const myPara1 = document.createElement('p');
+      const myPara2 = document.createElement('p');
+
+      myH2.textContent = polls[i];
+      myPara1.textContent = 'End Date: ' + polls[i].x[0];
+      myPara2.textContent = 'Dem: ' + polls[i].y[1]
+
+
+      myArticle.appendChild(myH2);
+      myArticle.appendChild(myPara1);
+      myArticle.appendChild(myPara2);
+    //   myArticle.appendChild(myList);
+      section.appendChild(myArticle);
+    }
+  }
+  </script>
+    
+</body>
+
+
+</html>
