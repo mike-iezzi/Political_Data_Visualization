@@ -35,6 +35,10 @@ def testdata():
 @app.route('/test')
 def test():
     return render_template('jsontest.html')
+
+@app.route('/graph')
+def graph():
+    return render_template('graphdemo.html')
     
      
 
