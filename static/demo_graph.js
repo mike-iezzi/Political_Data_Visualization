@@ -1,55 +1,4 @@
-<!DOCTYPE html>
-<html>
-<title>W3.CSS Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<script data-require="d3@3.5.3" data-semver="3.5.3" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.js"></script>
-
-<style>
-    #chart {
-        width: 100%;
-        height: 100%;
-        max-width: 960px;
-        max-height: 660px;
-    }
-
-    .axis path,
-    .axis line {
-        fill: none;
-        stroke: #000;
-        shape-rendering: crispEdges;
-    }
-
-    .x.axis path {
-        display: none;
-    }
-
-    .line {
-        fill: none;
-        stroke: steelblue;
-        stroke-width: 1.5px;
-    }
-</style>
-</head>
-
-<body>
-      <!-- Page content -->
-      <div class="w3-content w3-padding" style="max-width:1564px">
-
-
-        <!-- Data Section -->
-        <div class="w3-container w3-center w3-padding-32" id="data">
-            <h3 class="w3-center w3-border-bottom w3-border-light-grey w3-padding-16">Data</h3>
-            <div class="w3-center" id="chart"></div>
-            <p>chart</p>
-        </div>
-
-
-    </div>
-    
-  <script>
-    var myData = "date	New York	San Francisco	Austin\n\
+var myData = "date	New York	San Francisco	Austin\n\
 20111001	63.4	-62.7	72.2\n\
 20111002	58.0	-59.9	67.7\n\
 20111003	53.3	-59.1	69.4\n\
@@ -323,8 +272,3 @@ mouseG.append('svg:rect') // append a rect to catch mouse movements on canvas
                 return "translate(" + mouse[0] + "," + pos.y + ")";
             });
     });
-      
-  </script>
-</body>
-
-</html>
