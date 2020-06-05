@@ -51,7 +51,6 @@
 
     <script>
         // read in the json data 
-
         let requestURL = '/pollsdata';
         let request = new XMLHttpRequest();
         request.open('GET', requestURL);
@@ -130,13 +129,12 @@
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-            // set which data values are to be graphed
             color.domain(d3.keys(data[0]).filter(function (key) {
                 return key !== "date";
             }));
 
 
-            // not sure **had been +d[name]
+            // assign values for graphing 
             var drs = color.domain().map(function (name) {
                 return {
                     name: name,

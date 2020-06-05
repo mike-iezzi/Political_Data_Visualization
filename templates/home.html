@@ -61,10 +61,17 @@
 
 
   <!-- Data Section -->
-  <div class="w3-container w3-center w3-padding-32" id="data">
-    <h3 class="w3-center w3-border-bottom w3-border-light-grey w3-padding-16">Data</h3>
+  <div class="w3-container w3-padding-32" id="data">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Data</h3>
     <div class="w3-center" id= "chart"></div>
-    <p>chart</p>
+    <p>This chart shows the median of generic ballot polls from January 1st, 2020, to today.  
+      If you mouseover the graph, you can see the exact D-R split values and date for each datapoint. 
+      The data is retrieved from a JSON provided by 
+      FiveThirtyEight, processed in python, and then the processed data is sent in JSON format to the frontend where it is visualized using D3.js. 
+      The JSON data for this graph can be obtained from '/pollsdata' on this server. 
+
+
+    </p>
   </div>
 
   
@@ -72,7 +79,9 @@
   <!-- About Section -->
   <div class="w3-container w3-center" id="about">
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
-    <p>This lightweight website serves as a demonstration for some of my skills with data scraping, processing, and visualization as well as web development. The site is built primarily using Python (Flask Framework) for bulk of the data work, and Javascript (D3.js) for the visualization library. Finally, the site is hosted using Heroku. 
+    <p>This lightweight website serves as a demonstration for some of my skills with data scraping, processing, and visualization as well as 
+      web development. The site is built primarily using Python (Flask Framework) for bulk of the data work and as the server, 
+      and Javascript (D3.js) for the visualization library. Finally, the site is hosted using Heroku. 
     </p>
   </div>
   <div class="w3-container w3-center w3-border-bottom w3-border-light-grey w3-padding-16">
@@ -85,7 +94,7 @@
      		 <img src="{{ url_for('static', filename='me.png') }}"alt="John" style="width:100%">
       		<h3>Michael Hallee</h3>
       		<p class="w3-opacity">Data Analyst & Web Developer</p>
-      		<p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+      		<p>Mike is a rising senior in the Computer Science department and plays on Princeton's Men's Rugby Team.</p>
      		 <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
     	</div>
   	</div>
@@ -124,7 +133,7 @@
 </footer>
 
 
-<script src="{{url_for('static', filename='demo_graph.js', version='1x')}}"></script>
+<script src="{{url_for('static', filename='dr_graph.js', version='1xx99dddd')}}"></script>
 
 </body>
 </html>
