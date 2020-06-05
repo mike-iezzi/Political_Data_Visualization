@@ -133,6 +133,7 @@ def pollscsv():
                         float(raw[i]['answers'][1]['pct'])
                     }
 
+    # construct pandas data frame to generate csv file for heatmap
     df = pd.DataFrame([])
 
     for dt in rrule(DAILY, dtstart=a, until=c ):
@@ -146,16 +147,12 @@ def pollscsv():
         if (dr_counts > 0):
             df = df.append(pd.DataFrame({'Date': dt.strftime("%Y-%m-%d"), 'Dr':  dr_total / dr_counts}, index =[0]))
     
-    
+    # send response as csv
     resp = make_response(df.to_csv(encoding='utf-8', index=False))
     resp.headers["Content-Disposition"] = "attachment; filename=export.csv"
     resp.headers["Content-Type"] = "text/csv"
     return resp
 
-
-
-    
-     
 
 if __name__ == "__main__":
     app.run(debug=True)

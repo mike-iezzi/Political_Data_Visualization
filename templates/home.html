@@ -51,17 +51,6 @@
       stroke: #000;
       stroke-width: 2px;
     }
-    .RdYlGn .q0-11{fill:rgb(165,0,38)}
-    .RdYlGn .q1-{fill:rgb(215,48,39)}
-    .RdYlGn .q2-11{fill:rgb(244,109,67)}
-    .RdYlGn .q3-11{fill:rgb(253,174,97)}
-    .RdYlGn .q4-11{fill:rgb(254,224,139)}
-    .RdYlGn .q5-11{fill:rgb(255,255,191)}
-    .RdYlGn .q6-11{fill:rgb(217,239,139)}
-    .RdYlGn .q7-11{fill:rgb(166,217,106)}
-    .RdYlGn .q8-11{fill:rgb(102,189,99)}
-    .RdYlGn .q9-11{fill:rgb(26,152,80)}
-    .RdYlGn .q10-11{fill:rgb(0,104,55)}
 </style>
 
 
@@ -104,6 +93,15 @@
     </p>
 
     <div class="calender-map"></div>
+
+    <p class="w3-padding-24">The above calendar heatmap visualizes every generic ballot poll since 2017, and is also generated 
+      using D3.js.  The data is supplied by another live updating feed from the Flask server, where python's pandas library
+      is utilized to generate a csv of all the generic ballot polls by date.  
+      This csv can be retreaved from '/pollscsv' on this server. 
+      In cases where there were more than one poll
+      for a given date, the D-R splits were averaged.  I defined a custom color mapping function, although unfortunately all you
+      see is a sea of blue as almost all polls since 2017 have leaned Democrat. 
+    </p>
 
   </div>
 
@@ -167,7 +165,7 @@
 
 <script src="{{url_for('static', filename='dr_graph.js', version='1xx99dddd')}}"></script>
 
-<script type="text/javascript" src="{{url_for('static', filename='calendermap.js', verion='1xdd')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='dr_map.js', verion='1xdd99')}}"></script>
 
 </body>
 </html>
