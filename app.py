@@ -12,7 +12,6 @@ import pandas as pd
 from flask import make_response
 
 
-
 # encodes numpy data to json to serve to frontend
 class NumpyEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -94,14 +93,6 @@ def pollsdata():
     print("json sent:  " + datetime.datetime.now().isoformat())
     return jsonify({'all': polls_by_date, "aggregate":  polls_total_by_date})
 
-
-@app.route('/dr')
-def dr():
-    return render_template('dr-demo.html')
-
-@app.route('/heat')
-def heat():
-    return render_template('heat.html')
 
 @app.route('/pollscsv')
 def pollscsv():
