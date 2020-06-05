@@ -8,6 +8,8 @@ import statistics
 import json
 import datetime 
 from dateutil.rrule import rrule, DAILY
+import pandas as pd
+from flask import make_response
 
 
 
@@ -96,6 +98,62 @@ def pollsdata():
 @app.route('/dr')
 def dr():
     return render_template('dr-demo.html')
+
+@app.route('/heat')
+def heat():
+    return render_template('heat.html')
+
+@app.route('/pollscsv')
+def pollscsv():
+    # read in raw json from fiveThirtyEight
+    with urllib.request.urlopen("https://projects.fivethirtyeight.com/polls/polls.json") as url:
+        raw = json.loads(url.read().decode())
+    
+    print("538 response:  " + datetime.datetime.now().isoformat())
+    # create date indexed dict of all days between current date and Jan 1 2020 
+    # also 14 include days before Jan 1 2020 because of the calculation methods
+
+    a = datetime.date(2017, 1, 1)
+    c = datetime.datetime.now().date()
+
+    # all polls used for calcs + heatmap, stored by end date
+    polls_by_date = {}
+    for dt in rrule(DAILY, dtstart=a, until=c ):
+        polls_by_date[dt.strftime("%Y-%m-%d")] = {}
+
+    # get relevant polls from raw data
+    for i in range (0, len(raw)):
+        # poll is of correct type
+        if raw[i]['type'] == 'generic-ballot':
+            # poll ended after our chosen day 0
+            if datetime.datetime.strptime(raw[i]['endDate'], '%Y-%m-%d').date() >= a:
+                polls_by_date[raw[i]['endDate']][raw[i]['id']] = {
+                    'source' : raw[i]['pollster'],
+                    'result_d' : float(raw[i]['answers'][0]['pct']) -  
+                        float(raw[i]['answers'][1]['pct'])
+                    }
+
+    df = pd.DataFrame([])
+
+    for dt in rrule(DAILY, dtstart=a, until=c ):
+        dr_total = 0
+        dr_counts = 0
+
+        for key in polls_by_date[dt.strftime("%Y-%m-%d")]:
+            dr_total += polls_by_date[dt.strftime("%Y-%m-%d")][key]['result_d']
+            dr_counts += 1
+
+        if (dr_counts > 0):
+            df = df.append(pd.DataFrame({'Date': dt.strftime("%Y-%m-%d"), 'Dr':  dr_total / dr_counts}, index =[0]))
+    
+    
+    resp = make_response(df.to_csv(encoding='utf-8', index=False))
+    resp.headers["Content-Disposition"] = "attachment; filename=export.csv"
+    resp.headers["Content-Type"] = "text/csv"
+    return resp
+
+
+
     
      
 
