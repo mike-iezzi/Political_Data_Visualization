@@ -93,24 +93,6 @@ def pollsdata():
     return jsonify({'all': polls_by_date, "aggregate":  polls_total_by_date})
 
 
-
-@app.route('/testdata')
-def testdata():
-    test = np.zeros((2,20))
-    for i in range (0,20):
-        test[0][i] = i
-        test[1][i] = 0.125*i**3 - 80
-    return json.dumps({'test': {'x': test[0], 
-                                'y': test[1]}}, cls=NumpyEncoder, indent=4, sort_keys=True)
-
-@app.route('/test')
-def test():
-    return render_template('jsontest.html')
-
-@app.route('/graph')
-def graph():
-    return render_template('graphdemo.html')
-
 @app.route('/dr')
 def dr():
     return render_template('dr-demo.html')
